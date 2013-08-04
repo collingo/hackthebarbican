@@ -5,7 +5,9 @@ var http = require("http"),
 
 http.createServer(function(request, response) {
 	var req_path = url.parse(request.url).pathname,
-			full_path;
+			full_path, stat, readStream;
+
+			console.log(req_path);
 
 	switch(req_path) {
 
@@ -34,13 +36,38 @@ http.createServer(function(request, response) {
 						response.write(err + "\n");
 						response.end();
 					} else {
-						response.writeHeader(200);
-						response.write(file, "binary");
-						response.end();
+
+						switch(full_path.split(".")[1]) {
+							case "mp3":
+								console.log("mp3 bitches");
+								stat = fs.statSync(full_path);
+								
+								response.writeHead(200, {
+									'Content-Type': 'audio/mpeg',
+									'Content-Length': stat.size
+								});
+								
+								readStream = fs.createReadStream(full_path);
+								readStream.on('data', function(data) {
+									response.write(data);
+								});
+								
+								readStream.on('end', function() {
+									response.end();        
+								});
+								break;
+							default:
+								console.log("anyting else");
+								response.writeHeader(200);
+								response.write(file, "binary");
+								response.end();
+						}
+						
 					}
 				});
 			}
 		});
+
 	}
 
 }).listen(process.env.VMC_APP_PORT || 1337, null);
