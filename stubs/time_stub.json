@@ -1,0 +1,7 @@
+{
+    "dates": [
+    	"0994", "1066", "1172", "1216", "1348", "1945"
+    ],
+    "folders" : ["/audio/", "/images/", "/content/"],
+    "parentUrl" : "http://www.htb/"
+}
