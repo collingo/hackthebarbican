@@ -53,11 +53,40 @@
         $target.html(displayTime);
     };
 
+    clockWatcher.playAudio = function(audio){
+        var player = $('#audioPlayer'),
+            playerSource = $('#audioPlayer source');
+            console.log(player, playerSource);
+        
+        playerSource[0].src = audio;
+
+        player[0].load();
+    };
+
+    clockWatcher.splitResponse = function(data){
+        var items = data.split('|');
+        
+        clockWatcher.playAudio(items[1]);
+
+        $('.content p').html('<h5> the current response from the server is '+data+'</h5>');
+    
+    };
+
+    clockWatcher.ajaxRequest = function(){
+        $.ajax({
+            url: "/time",
+            success: function(data) {
+                clockWatcher.splitResponse(data);
+            }
+
+        });
+    };
+
     clockWatcher.polling = function(){
         if((time - pollingChanged) > 30000){
             var testDisplay = moment().format("HH:mm:ss");
             
-            $('.content p').html('<h5>'+testDisplay+'</h5>');
+            clockWatcher.ajaxRequest();
 
             clockWatcher.pollingChange();
         }
