@@ -8,7 +8,8 @@
         $timeTarget = $('#test'),
         $tarAttr = $('time').attr('datetime'),
         time,
-        lastTimeChange;
+        lastTimeChange,
+        pollingChanged;
 
     window.clockWatcher = window.clockWatcher || {};
 
@@ -30,12 +31,16 @@
 
         clockWatcher.lastChanged();
         clockWatcher.displayTime();
-
+        clockWatcher.pollingChange();
         clockWatcher.draw($target);
     };
 
     clockWatcher.lastChanged = function(){
         lastTimeChange = time;
+    };
+
+    clockWatcher.pollingChange = function(){
+        pollingChanged = time;
     };
 
     clockWatcher.setTime = function(){
@@ -46,14 +51,22 @@
         var displayTime = moment().format("HH:mm:ss");
 
         $target.html(displayTime);
+    };
 
+    clockWatcher.polling = function(){
+        if((time - pollingChanged) > 30000){
+            var testDisplay = moment().format("HH:mm:ss");
+            
+            $('.content p').html('<h5>'+testDisplay+'</h5>');
+
+            clockWatcher.pollingChange();
+        }
     };
 
     clockWatcher.checkTimeDiff = function(){
         if((time - lastTimeChange) > 1000){
-            
             clockWatcher.displayTime();
-
+            
             clockWatcher.lastChanged();
         }
     };
@@ -63,6 +76,8 @@
 
         clockWatcher.setTime();
 
+        clockWatcher.polling();
+        
         clockWatcher.checkTimeDiff();
     };
 
