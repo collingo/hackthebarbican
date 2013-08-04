@@ -29,6 +29,9 @@ select,
 textarea {
     color: #222;
 }
+audio{
+  display: none;
+}
 
 body {
     width: 100%;
