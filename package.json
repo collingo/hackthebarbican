@@ -5,8 +5,8 @@
   "author": "Nick Collings & Kev Mar-Molinero",
   "licenses": "",
   "preferGlobal": false,
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
+    "moment": "~2.1.0"
   }
 }

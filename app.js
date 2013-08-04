@@ -1,20 +1,42 @@
 var http = require("http"),
 		path = require("path"),
 		url = require("url"),
-		fs = require("fs");
+		fs = require("fs"),
+		moment = require("moment");
+
+function twoDigitNumber(num) {
+	return ("0" + num).slice(-2);
+}
 
 http.createServer(function(request, response) {
 	var req_path = url.parse(request.url).pathname,
-			full_path, stat, readStream;
-
-			console.log(req_path);
+			full_path,
+			stat,
+			readStream,
+			time,
+			hour,
+			minute,
+			assetBaseUrl,
+			responseValue;
 
 	switch(req_path) {
 
 	case "/":
-		response.writeHeader(200, {"Content-Type": "text/plain"});
-		response.write(Date.now()+"");
-		response.end();
+		time = moment();
+		hour = twoDigitNumber(time.hour());
+		minute = twoDigitNumber(time.minute());
+		assetBaseUrl = "/assets/"+hour+minute;
+
+		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
+			var responseValue = hour+":"+minute;
+			if(exists) {
+				responseValue += "|"+assetBaseUrl+"/audio.mp3";
+			}
+			response.writeHeader(200, {"Content-Type": "text/plain"});
+			response.write(responseValue);
+			response.end();
+		});
+
 		break;
 
 	case "/favicon.ico":
@@ -38,29 +60,29 @@ http.createServer(function(request, response) {
 					} else {
 
 						switch(full_path.split(".")[1]) {
-							case "mp3":
-								console.log("mp3 bitches");
-								stat = fs.statSync(full_path);
-								
-								response.writeHead(200, {
-									'Content-Type': 'audio/mpeg',
-									'Content-Length': stat.size
-								});
-								
-								readStream = fs.createReadStream(full_path);
-								readStream.on('data', function(data) {
-									response.write(data);
-								});
-								
-								readStream.on('end', function() {
-									response.end();        
-								});
-								break;
-							default:
-								console.log("anyting else");
-								response.writeHeader(200);
-								response.write(file, "binary");
+						case "mp3":
+							console.log("mp3 bitches");
+							stat = fs.statSync(full_path);
+							
+							response.writeHead(200, {
+								'Content-Type': 'audio/mpeg',
+								'Content-Length': stat.size
+							});
+							
+							readStream = fs.createReadStream(full_path);
+							readStream.on('data', function(data) {
+								response.write(data);
+							});
+							
+							readStream.on('end', function() {
 								response.end();
+							});
+							break;
+						default:
+							console.log("anyting else");
+							response.writeHeader(200);
+							response.write(file, "binary");
+							response.end();
 						}
 						
 					}
