@@ -34,7 +34,6 @@ body {
     width: 100%;
  font-family: "Futura", "Arial";
     font-size: 1em;
-    font-variant: bold;
     line-height: 1.4;
     background-color: #2f3438;
     color: #fff;
@@ -249,8 +248,7 @@ textarea[contenteditable] {
 }
 
 time {
-  font-size: 4em;
-  color:#646b71;
+  font-size: 4.5em;
 
 }
 
@@ -258,8 +256,9 @@ time {
  width:80%;
     margin-left: auto ;
   margin-right: auto ;
-  font-size: 1.5em;
-  line-height: 0.9em;
+  font-size: 2em;
+  line-height: 1.1em;
+  -webkit-transform: skewY(-9deg);
 
 }
 
@@ -272,7 +271,6 @@ time {
      width:80%;
     margin-left: auto ;
   margin-right: auto ;
-    background-color: #000;
 
 
 }
@@ -281,12 +279,21 @@ time {
 
 }
 
+.cta_collection {
+   list-style: none;
+padding: 0px;
+}
+
 .section {
     margin-left: auto ;
   margin-right: auto ;
-    background-color: #000;
+  background-color: #ff5900;
+}
 
-
+.sectionContent {
+  width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
 }
 
 
@@ -299,11 +306,12 @@ time {
 }
 
 .section ul {
+ list-style: none;
 
 }
 
 .section li {
- list-style-type: none;
+ list-style: none;
 
 }
 
@@ -312,11 +320,10 @@ time {
 @media only screen and (min-width: 641px) {
 
 #wrapper {
- width:98%;
+ width:85%;
     margin-left: auto ;
   margin-right: auto ;
-  padding-top:3%;
-  background-color: blue;
+  padding-top:8%;
 }
 
 
@@ -333,7 +340,6 @@ time {
 
 time {
   font-size: 8em;
-  color:red;
   line-height: 0.5em;
 
 }
@@ -342,7 +348,7 @@ time {
  width:80%;
     margin-left: auto ;
   margin-right: auto ;
-  font-size: 2em;
+  font-size: 4em;
 
 }
 
@@ -358,23 +364,19 @@ time {
 
 }
 
-.ctaPrimary {
-  color: #ffffff;
-  font-size: 2em;
 
-}
-
-.ctaSecondary {
-  color: red;
-  font-size: 1em;
-
-}
 
 .section {
     margin-left: auto ;
   margin-right: auto ;
-  background-color: #000;
 
+}
+
+
+.sectionContent {
+  width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
 }
 
 
@@ -395,6 +397,16 @@ time {
 .section li {
  list-style-type: none;
 
+}
+
+
+.section li .branding {
+}
+
+.section li .soundPlaying {
+}
+
+.section li .ctaprimary {
 }
 
 }
@@ -414,11 +426,10 @@ time {
     /* Style adjustments for viewports that meet the condition */
 
   #wrapper {
-   width:98%;
+   width:900px;
       margin-left: auto ;
     margin-right: auto ;
-    padding-top:3%;
-    background-color: blue;
+    padding-top:5%;
   }
 
 
@@ -434,8 +445,7 @@ time {
   }
 
   time {
-    font-size: 8em;
-    color:red;
+    font-size: 10em;
     line-height: 0.5em;
 
   }
@@ -444,7 +454,7 @@ time {
    width:80%;
       margin-left: auto ;
     margin-right: auto ;
-    font-size: 2em;
+    font-size: 4em;
 
   }
 
@@ -460,22 +470,12 @@ time {
 
   }
 
-  .ctaPrimary {
-    color: #ffffff;
-    font-size: 2em;
-
-  }
-
-  .ctaSecondary {
-    color: red;
-    font-size: 1em;
-
-  }
+  
+ 
 
   .section {
       margin-left: auto ;
     margin-right: auto ;
-    background-color: #000;
 
   }
 
@@ -489,13 +489,13 @@ time {
   }
 
   .section ul {
-     list-style-type: none;
+     list-style: none;
 
 
   }
 
   .section li {
-   list-style-type: none;
+   list-style: none;
 
   }
 
