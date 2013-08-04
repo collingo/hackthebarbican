@@ -1,0 +1,12 @@
+{
+  "name": "HackTheBarbican",
+  "description": "Hack the Barbican installation",
+  "version": "0.0.1",
+  "author": "Nick Collings & Kev Mar-Molinero",
+  "licenses": "",
+  "preferGlobal": false,
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
