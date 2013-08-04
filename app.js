@@ -21,7 +21,25 @@ http.createServer(function(request, response) {
 
 	switch(req_path) {
 
-	case "/":
+	case "/time":
+		time = moment();
+		hour = twoDigitNumber(time.hour());
+		minute = twoDigitNumber(time.minute());
+		assetBaseUrl = "/assets/"+hour+minute;
+
+		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
+			var responseValue = hour+":"+minute;
+			if(exists) {
+				responseValue += "|"+assetBaseUrl+"/audio.mp3";
+			}
+			response.writeHeader(200, {"Content-Type": "text/plain"});
+			response.write(responseValue);
+			response.end();
+		});
+
+		break;
+
+	case "/assets":
 		time = moment();
 		hour = twoDigitNumber(time.hour());
 		minute = twoDigitNumber(time.minute());
@@ -45,7 +63,11 @@ http.createServer(function(request, response) {
 		break;
 
 	default:
-		full_path = path.join(process.cwd(), req_path);
+		var baseFilePath = "/www";
+		if(req_path.split('/')[1] === "assets") {
+			baseFilePath = "";
+		}
+		full_path = path.join(process.cwd(), baseFilePath+((req_path === "/") ? "/index.html" : req_path));
 		fs.exists(full_path, function(exists) {
 			if(!exists) {
 				response.writeHeader(404, {"Content-Type": "text/plain"});
