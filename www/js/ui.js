@@ -2,11 +2,22 @@ var barbican = window.barbican || {};
 
 barbican.ui = (function () {
 
-	var ctas = $('.cta_collection a').on('click', onClickHandler);
+	var ctas = $('.cta_collection a');
+	var close = $('.close');
+	var selectedClass = 'selected';
 
 	var onClickHandler = function (event) {
-		
+			
+		var target = $(this).attr('href');
+
+		$('.section').removeClass(selectedClass);
+		$(target).addClass(selectedClass);
+
+		event.preventDefault();
 	};
+
+	ctas.on('click', onClickHandler);
+	close.on('click', onClickHandler);
 
 })();
 
@@ -21,7 +32,7 @@ $(function () {
 
 		var onAudioHandler = function (event) {
 			if (event.type === 'play') {
-				equaliser.src = 
+				//equaliser.src = 
 			}
 		};
 
