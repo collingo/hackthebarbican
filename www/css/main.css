@@ -37,7 +37,7 @@ body {
     width: 100%;
  font-family: "Futura", "Arial";
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 5em;
     background-color: #2f3438;
     color: #fff;
 }
@@ -235,7 +235,7 @@ textarea[contenteditable] {
  width:98%;
     margin-left: auto ;
   margin-right: auto ;
-  padding-top:3%;
+  padding-top:0px;
 }
 
 
@@ -243,6 +243,7 @@ textarea[contenteditable] {
  width:80%;
     margin-left: auto ;
   margin-right: auto ;
+  text-align: center;
 }
 
 .visuallyHidden {
@@ -251,17 +252,25 @@ textarea[contenteditable] {
 }
 
 time {
+  width: 100px;
   font-size: 4.5em;
+  text-align: center;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTY0LjIxMXB4IiBoZWlnaHQ9IjQzOC40NTRweCIgdmlld0JveD0iMCAwIDU2NC4yMTEgNDM4LjQ1NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTY0LjIxMSA0MzguNDU0Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRjE1QjIyIiBkPSJNNDcuMjcxLDBDMTcuNDE2LDQ0Ljc1MywwLDk4LjUxNCwwLDE1Ni4zNDkNCgljMCwxNTUuODAzLDEyNi4zMDMsMjgyLjEwNSwyODIuMTA2LDI4Mi4xMDVjMTU1LjgwMywwLDI4Mi4xMDUtMTI2LjMwMywyODIuMTA1LTI4Mi4xMDVjMC01Ny44MzQtMTcuNDE2LTExMS41OTUtNDcuMjcxLTE1Ni4zNDkNCglINDcuMjcxeiIvPg0KPC9zdmc+DQo=);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 100%;
 
 }
+
 
 .content {
  width:80%;
     margin-left: auto ;
   margin-right: auto ;
-  font-size: 2em;
-  line-height: 1.1em;
-  -webkit-transform: skewY(-9deg);
+  font-size: 1.2em;
+  line-height: 1.3em;
+  text-align: center;
+  padding-top: 15%;
 
 }
 
@@ -319,6 +328,11 @@ padding: 0px;
 }
 
 
+.sub_pages {
+  font-size:.8em;
+}
+
+
 
 @media only screen and (min-width: 641px) {
 
@@ -326,7 +340,6 @@ padding: 0px;
  width:85%;
     margin-left: auto ;
   margin-right: auto ;
-  padding-top:8%;
 }
 
 
@@ -343,7 +356,9 @@ padding: 0px;
 
 time {
   font-size: 8em;
-  line-height: 0.5em;
+  line-height: 1em;
+  text-align: center;
+
 
 }
 
@@ -351,7 +366,8 @@ time {
  width:80%;
     margin-left: auto ;
   margin-right: auto ;
-  font-size: 4em;
+  font-size: 1.5em;
+  padding-top: 10%;
 
 }
 
@@ -450,14 +466,17 @@ time {
   time {
     font-size: 10em;
     line-height: 0.5em;
+    text-align: center;
+
 
   }
 
   .content {
-   width:80%;
+   width:60%;
       margin-left: auto ;
     margin-right: auto ;
-    font-size: 4em;
+    font-size: 1.5em;
+    padding-top: 5%;
 
   }
 
