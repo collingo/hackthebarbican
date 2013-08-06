@@ -13,6 +13,12 @@ barbican.ui = (function () {
 		$('.section').removeClass(selectedClass);
 		$(target).addClass(selectedClass);
 
+		if (target.match(/home/)) {
+			$('.footer').show();
+		} else {
+			$('.footer').hide();
+		}
+
 		event.preventDefault();
 	};
 

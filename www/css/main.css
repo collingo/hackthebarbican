@@ -230,6 +230,11 @@ textarea[contenteditable] {
 
 /*anything in here is mobile*/
 
+html,
+body {
+  height: 100%;
+}
+
 #wrapper {
  width:320px;
     margin-left: auto ;
@@ -312,11 +317,9 @@ text-align: center;
   padding: 0 10px 0 10px;
 }
 
-
-
-
 .section {
-    margin-left: auto ;
+  height: 100%;
+  margin-left: auto ;
   margin-right: auto ;
   background-color: #ff5900;
 }
@@ -329,7 +332,7 @@ text-align: center;
 
 
 .section h2 {
-
+  margin: 0;
 }
 
 .section p {
@@ -351,12 +354,28 @@ text-align: center;
   font-size:.8em;
 }
 
-.section.selected {
+.section {
+  display: none;
+  position: relative;
+}
+
+.selected {
   display: block;
 }
 
+.close {
+  line-height: 1;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
 .section {
-  display: none;
+  background-color: #ff5900;
+}
+
+#home {
+  background: transparent;
 }
 
 @media only screen and (min-width: 767px) {
@@ -410,9 +429,13 @@ time {
 
 
 .cta_collection {
-   list-style: none;
-padding: 0px;
-
+  list-style: none;
+  padding: 0px;
+  bottom: 0;
+  margin: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .cta_collection li {
@@ -434,11 +457,7 @@ padding: 0px;
 
 
 
-.section {
-    margin-left: auto ;
-  margin-right: auto ;
-  background-color: #ff5900;
-}
+
 
 .sectionContent {
   width:80%;
