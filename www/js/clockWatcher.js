@@ -25,12 +25,14 @@
                 };
     })();
 
-    clockWatcher.init = function(){            
+    clockWatcher.init = function(format){            
         
+        this.format = format;
+
         clockWatcher.setTime();
 
         clockWatcher.lastChanged();
-        clockWatcher.displayTime();
+        clockWatcher.displayTime(format);
         clockWatcher.pollingChange();
         clockWatcher.draw($target);
     };
@@ -48,7 +50,7 @@
     };
 
     clockWatcher.displayTime = function(){
-        var displayTime = moment().format("HH:mm:ss");
+        var displayTime = moment().format(this.format || "HH:mm");
 
         $target.html(displayTime);
     };
