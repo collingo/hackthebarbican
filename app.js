@@ -31,7 +31,7 @@ http.createServer(function(request, response) {
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
 			var responseValue = hour+":"+minute;
 			if(exists) {
-				responseValue += "|"+assetBaseUrl+"/audio.mp3";
+				responseValue += "|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json";
 			}
 			response.writeHeader(200, {"Content-Type": "text/plain"});
 			response.write(responseValue);

@@ -53,23 +53,41 @@
         $target.html(displayTime);
     };
 
+    clockWatcher.showImage = function(string){
+        var image = $('.image_holder');
+        
+        image[0].src = string;
+    };
+
     clockWatcher.playAudio = function(audio){
         var player = $('#audioPlayer'),
             playerSource = $('#audioPlayer source');
-            console.log(player, playerSource);
-        
-        playerSource[0].src = audio;
 
+        playerSource[0].src = audio;
         player[0].load();
+    };
+
+    clockWatcher.pullContent = function(jsonUrl){
+        $.ajax({
+            url: jsonUrl,
+            dataType: 'json',
+            success: function(data) {
+                $('.content p').html(data.copy);
+            }
+
+        });
     };
 
     clockWatcher.splitResponse = function(data){
         var items = data.split('|');
         
-        clockWatcher.playAudio(items[1]);
-
-        $('.content p').html('<h5> the current response from the server is '+data+'</h5>');
-    
+        // if(items.length > 1){
+        //     clockWatcher.playAudio(items[1]);
+        //     clockWatcher.showImage(items[2]);
+        //     clockWatcher.pullContent(items[3]);
+        // }else{
+            clockWatcher.playAudio(items[1]);
+        // }
     };
 
     clockWatcher.ajaxRequest = function(){
@@ -77,13 +95,14 @@
             url: "/time",
             success: function(data) {
                 clockWatcher.splitResponse(data);
+                console.log(data);
             }
 
         });
     };
 
     clockWatcher.polling = function(){
-        if((time - pollingChanged) > 30000){
+        if((time - pollingChanged) > 10000){
             var testDisplay = moment().format("HH:mm:ss");
             
             clockWatcher.ajaxRequest();
