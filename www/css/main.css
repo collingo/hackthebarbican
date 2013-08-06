@@ -57,8 +57,7 @@ a:visited {
 }
 
 a:hover {
-    color: #ffffff;
-    text-decoration: none;
+    color: #5e6469;
 }
 
 
@@ -281,7 +280,7 @@ time {
 }
 
 .footer {
-     width:80%;
+     width:90%;
     margin-left: auto ;
   margin-right: auto ;
 
@@ -295,7 +294,26 @@ time {
 .cta_collection {
    list-style: none;
 padding: 0px;
+text-align: center;
+
 }
+
+.cta_collection li {
+  display: inline-block;
+}
+
+.cta_collection .branding {
+  display: block;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+.cta_collection .sub_pages, 
+.cta_collection .soundPlaying {
+  padding: 0 10px 0 10px;
+}
+
+
+
 
 .section {
     margin-left: auto ;
@@ -391,12 +409,36 @@ time {
 
 
 
-.section {
-    margin-left: auto ;
-  margin-right: auto ;
+.cta_collection {
+   list-style: none;
+padding: 0px;
 
 }
 
+.cta_collection li {
+  float: right;
+}
+
+
+
+.cta_collection .branding {
+  float: left;
+  border-bottom: none;
+}
+
+.cta_collection .sub_pages, 
+.cta_collection .soundPlaying {
+  padding: 0 0 0 30px;
+}
+
+
+
+
+.section {
+    margin-left: auto ;
+  margin-right: auto ;
+  background-color: #ff5900;
+}
 
 .sectionContent {
   width:80%;
