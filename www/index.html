@@ -42,9 +42,9 @@ AM:PM:AD Timelapse
     <body>
        
         <!-- Add your site or application content here -->
-
     <div id="wrapper">
 
+        <div class="section" id="home">
         <div class="header">
             <h1 class="visuallyHidden">
                 AM:PM:AD
@@ -56,52 +56,48 @@ AM:PM:AD Timelapse
         </div>
         <audio id="audioPlayer" controls="controls" autoplay>
             Your browser does not support the <code>audio</code> element.
-            <source src="" type="audio/mp3">
+            <source src="sounds/test.mp3" type="audio/mp3">
         </audio>
-        <img src="" class="image_holder" />
+        
         <div class="content">
             <p>
                 Henry VIII beheads his 2nd wife Anne Boleyn at the Tower of London
             </p>
         </div>
         
-        <div class="footer">
-            <ul class="cta_collection">
-                <li class="branding">
-                    AM:PM:AD
-                    <span>Timelapse</span>
-                </li>
-                <li class="soundPlaying">
-                    <img src="img/sound/sound_playing.gif" alt="Sound playing"/>
-                </li>
-                <li class="sub_pages">
-                    <a href="somewhere" >The Project</a>
-                </li>
-                   <li class="sub_pages">
-                    <a href="somewhere" >View Timeline</a>
-                </li>
-            </ul>
-            
-            
-
         </div>
-
-
-
-
 
         <!-- <h1>12:36</h1> -->
 
     </div>
 
-     <div class="section">
+
+
+   <div class="footer">
+                    <ul class="cta_collection clearfix">
+                        <li class="branding">AM:PM:AD<span>Timelapse</span></li>
+                        <li class="sub_pages">
+                            <a href="#about">The Project</a>
+                        </li>
+                        <li class="sub_pages">
+                            <a href="#timeline" >View Timeline</a>
+                        </li>
+                        <li class="soundPlaying">
+                            <img src="img/sound/sound_playing.gif" alt="Sound playing"/>
+                        </li>
+                    </ul>
+                    
+                    
+
+        </div>
+
+
+     <div class="section selected" id="project">
             <div class="sectionContent">    
-                <h2>
-                    Info header
-                </h2>
-                <p>
-                    Info para
-                </p>
+                <h2>AM:PM:AD</h2>
+                <h3>Timelapse</h3>
+                <h4>
+All the historical content will be sound - think coins clicking or marching for the Romans etc. After 2013, it'll be noises from the future.                </h4>
                 <ul>
                     <li>
                     Logos
@@ -114,14 +110,23 @@ AM:PM:AD Timelapse
                     </li>
                 </ul>
              </div>   
+
     </div>
 
+    <div class="section" id="timeline">
+        <a href="#home" class="close">Close</a>
+        <div class="sectionContent">
+            <h2>Timeline</h2>
+        </div>
+    </div>
 
+        <!-- <h1>12:36</h1> -->
 
         <script src="js/vendor/zepto.min.js"></script>
         <script src="js/vendor/moment.min.js"></script>
         <script src="js/helper.js"></script>
         <script src="js/clockWatcher.js"></script>
+        <script src="js/ui.js"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];

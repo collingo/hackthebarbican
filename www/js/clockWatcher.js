@@ -13,120 +13,78 @@
 
     window.clockWatcher = window.clockWatcher || {};
 
-    window.requestAnimFrame = (function(){
+    window.requestAnimFrame = (function() {
         return  window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame ||
                 window.oRequestAnimationFrame ||
                 window.msRequestAnimationFrame ||
         
-                function( callback ){
+                function( callback ) {
                     window.setTimeout(callback, 1000 / 60);
                 };
     })();
 
-    clockWatcher.init = function(){            
+    clockWatcher.init = function(format) {            
         
-        clockWatcher.setTime();
+        // cache
+        clockWatcher.format = format;
+        clockWatcher.lastPoll = new Date().getTime();
 
-        clockWatcher.lastChanged();
-        clockWatcher.displayTime();
-        clockWatcher.pollingChange();
-        clockWatcher.draw($target);
+        // collect current time from server
+        clockWatcher.ajaxRequest();
+
+        // start draw cycle
+        clockWatcher.draw();
     };
 
-    clockWatcher.lastChanged = function(){
-        lastTimeChange = time;
+    clockWatcher.draw = function() {
+
+        var currentTime = new Date().getTime();
+
+        if((currentTime - clockWatcher.lastPoll) > 5000) {
+            clockWatcher.ajaxRequest();
+            clockWatcher.lastPoll = currentTime;
+        }
+
+        requestAnimationFrame(clockWatcher.draw);
     };
 
-    clockWatcher.pollingChange = function(){
-        pollingChanged = time;
+    clockWatcher.ajaxRequest = function() {
+        $.ajax({
+            url: "/time",
+            success: clockWatcher.processResponse
+        });
     };
 
-    clockWatcher.setTime = function(){
-        time = new Date().getTime();
-    };
-
-    clockWatcher.displayTime = function(){
-        var displayTime = moment().format("HH:mm:ss");
-
-        $target.html(displayTime);
-    };
-
-    clockWatcher.showImage = function(string){
-        var image = $('.image_holder');
+    clockWatcher.processResponse = function(data) {
+        var items = data.split('|');
         
-        image[0].src = string;
+        clockWatcher.displayTime(items[0]);
+        clockWatcher.playAudio(items[1]);
     };
 
-    clockWatcher.playAudio = function(audio){
+    clockWatcher.displayTime = function(timeString) {
+        var time;
+        switch(clockWatcher.format) {
+        case "HH":
+            time = timeString.split(":")[0];
+            break;
+        case "mm":
+            time = timeString.split(":")[1];
+            break;
+        default:
+            time = timeString;
+        }
+        $target.html(time);
+    };
+
+    clockWatcher.playAudio = function(audio) {
         var player = $('#audioPlayer'),
             playerSource = $('#audioPlayer source');
 
         playerSource[0].src = audio;
         player[0].load();
     };
-
-    clockWatcher.pullContent = function(jsonUrl){
-        $.ajax({
-            url: jsonUrl,
-            dataType: 'json',
-            success: function(data) {
-                $('.content p').html(data.copy);
-            }
-
-        });
-    };
-
-    clockWatcher.splitResponse = function(data){
-        var items = data.split('|');
-        
-        // if(items.length > 1){
-        //     clockWatcher.playAudio(items[1]);
-        //     clockWatcher.showImage(items[2]);
-        //     clockWatcher.pullContent(items[3]);
-        // }else{
-            clockWatcher.playAudio(items[1]);
-        // }
-    };
-
-    clockWatcher.ajaxRequest = function(){
-        $.ajax({
-            url: "/time",
-            success: function(data) {
-                clockWatcher.splitResponse(data);
-            }
-
-        });
-    };
-
-    clockWatcher.polling = function(){
-        if((time - pollingChanged) > 30000){
-            var testDisplay = moment().format("HH:mm:ss");
-            
-            clockWatcher.ajaxRequest();
-
-            clockWatcher.pollingChange();
-        }
-    };
-
-    clockWatcher.checkTimeDiff = function(){
-        if((time - lastTimeChange) > 1000){
-            clockWatcher.displayTime();
-            
-            clockWatcher.lastChanged();
-        }
-    };
-
-    clockWatcher.draw = function(){
-        requestAnimationFrame(clockWatcher.draw);
-
-        clockWatcher.setTime();
-
-        clockWatcher.polling();
-        
-        clockWatcher.checkTimeDiff();
-    };
-
 
 })(document);
