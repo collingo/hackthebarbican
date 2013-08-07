@@ -95,14 +95,13 @@
             url: "/time",
             success: function(data) {
                 clockWatcher.splitResponse(data);
-                console.log(data);
             }
 
         });
     };
 
     clockWatcher.polling = function(){
-        if((time - pollingChanged) > 10000){
+        if((time - pollingChanged) > 30000){
             var testDisplay = moment().format("HH:mm:ss");
             
             clockWatcher.ajaxRequest();
