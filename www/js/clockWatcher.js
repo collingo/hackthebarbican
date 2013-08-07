@@ -25,11 +25,20 @@
                 };
     })();
 
-    clockWatcher.init = function(format) {            
-        
+    console.log("ClockWatcher running");
+
+    clockWatcher.log = function() {
+        if(clockWatcher.debug) {
+            console.log.apply(console, arguments);
+        }
+    };
+
+    clockWatcher.init = function(format, debug) { 
+
         // cache
         clockWatcher.format = format;
         clockWatcher.lastPoll = new Date().getTime();
+        clockWatcher.debug = !!debug;
 
         // collect current time from server
         clockWatcher.ajaxRequest();
@@ -43,11 +52,12 @@
         var currentTime = new Date().getTime();
 
         if((currentTime - clockWatcher.lastPoll) > 5000) {
+            clockWatcher.log("ajax", currentTime);
             clockWatcher.ajaxRequest();
             clockWatcher.lastPoll = currentTime;
         }
 
-        requestAnimationFrame(clockWatcher.draw);
+        requestAnimFrame(clockWatcher.draw);
     };
 
     clockWatcher.ajaxRequest = function() {
@@ -58,6 +68,7 @@
     };
 
     clockWatcher.processResponse = function(data) {
+        clockWatcher.log(data);
         var items = data.split('|');
         
         clockWatcher.displayTime(items[0]);
