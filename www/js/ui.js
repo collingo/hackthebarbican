@@ -1,6 +1,6 @@
 var barbican = window.barbican || {};
 
-barbican.ui = (function () {
+barbican.ui = function () {
 
 	var ctas = $('.cta_collection a');
 	var close = $('.close');
@@ -24,29 +24,29 @@ barbican.ui = (function () {
 
 	ctas.on('click', onClickHandler);
 	close.on('click', onClickHandler);
+};
 
-})();
+barbican.sound = function () {
+	var audioPlayer = document.querySelector('#audioPlayer');
+	var equaliser = document.querySelector('.soundPlaying img');
+	var defaultState = equaliser.src;
 
-$(function () {
+	var onAudioHandler = function (event) {
+		if (event.type === 'play') {
+			equaliser.src = equaliser.dataset.playingSrc;
+		} else {
+			equaliser.src = defaultState;
+		}
+	};
 
-	barbican.sound = function () {
+	audioPlayer.addEventListener('loadstart', onAudioHandler, false);
+	audioPlayer.addEventListener('play', onAudioHandler, false);
+	audioPlayer.addEventListener('ended', onAudioHandler, false);
+};
 
-		var equaliser = document.querySelector('.soundPlaying img');
-		var defaultState = equaliser.src;
-
-
-
-		var onAudioHandler = function (event) {
-			if (event.type === 'play') {
-				//equaliser.src = 
-			}
-		};
-
-		$('#audioPlayer').on('loadstart play', function (event) {
-			console.log(event);
-		});
-	}
-
+var init = function () {
+	barbican.ui();
 	barbican.sound();
+};
 
-});
+document.addEventListener('DOMContentLoaded', init, false);
