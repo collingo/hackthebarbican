@@ -41,3 +41,45 @@ body {
     background-color: #2f3438;
     color: #fff;
 }
+
+        html,
+        body,
+        time {
+            width:1024px;
+            height:768px;
+            color:#fff;
+            font-size:650px;
+            line-height:768px;
+            text-align:center;
+        }
+        body {
+            background:#000;
+        }
+        .glitchText {
+            -webkit-animation: glitchText 0.3s infinite;
+        }
+        @-webkit-keyframes glitchText {
+            0% {
+                color:#fff;
+            }
+            50% {
+                color:#000;
+            }
+            100% {
+                color:#fff;
+            }
+        }
+        .glitchBackground {
+            -webkit-animation: glitchBackground 0.3s infinite;
+        }
+        @-webkit-keyframes glitchBackground {
+            0% {
+                background-color:#000;
+            }
+            50% {
+                background-color:#fff;
+            }
+            100% {
+                background-color:#000;
+            }
+        }
