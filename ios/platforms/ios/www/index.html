@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hackspace</title>
+        <link rel="stylesheet" href="css/normalize.css">
+            <link rel="stylesheet" href="css/main.css">
+                <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <!-- Add your site or application content here -->
+    <div id="wrapper">
+
+        <div class="section selected" id="home">
+        <div class="header">
+            <h1 class="visuallyHidden">
+                AM:PM:AD
+
+            </h1>
+            <time datetime="2009-11-13T20:00+00:00">
+                    00:00
+            </time>
+        </div>
+        <audio id="audioPlayer" controls="controls" autoplay autobuffer>
+            Your browser does not support the <code>audio</code> element.
+            <source src="sounds/test.mp3" type="audio/mp3">
+            <source src="sounds/test.ogg" type="audio/ogg">
+        </audio>
+
+        <div class="content">
+            <p>
+                Henry VIII beheads his 2nd wife Anne Boleyn at the Tower of London
+            </p>
+        </div>
+
+        </div>
+
+        <!-- <h1>12:36</h1> -->
+
+    </div>
+
+
+
+   <div class="footer">
+                    <ul class="cta_collection clearfix">
+                        <li class="branding">AM:PM:AD<span>Timelapse</span></li>
+                        <li class="sub_pages">
+                            <a href="#about">The Project</a>
+                        </li>
+                        <li class="sub_pages">
+                            <a href="#timeline" >View Timeline</a>
+                        </li>
+                        <li class="soundPlaying">
+                            <img data-playing-src="img/sound/sound_playing.gif" src="img/sound/sound_stopped.png" alt="Sound playing"/>
+                        </li>
+                    </ul>
+
+
+
+        </div>
+
+
+     <div class="section" id="project">
+            <div class="sectionContent">
+                <h2>AM:PM:AD</h2>
+                <h3>Timelapse</h3>
+                <h4>
+All the historical content will be sound - think coins clicking or marching for the Romans etc. After 2013, it'll be noises from the future.                </h4>
+                <ul>
+                    <li>
+                    Logos
+                    </li>
+                    <li>
+                    Logos
+                    </li>
+                    <li>
+                    Logos
+                    </li>
+                </ul>
+             </div>
+
+    </div>
+
+    <div class="section" id="timeline">
+        <a href="#home" class="close">Close</a>
+        <div class="sectionContent">
+            <h2>Timeline</h2>
+        </div>
+    </div>
+
+        <!-- <h1>12:36</h1> -->
+
+        <div class="bg" style="background-image: url(img/landscape.jpg);"></div>
+
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script src="js/vendor/zepto.min.js"></script>
+        <script src="js/vendor/moment.min.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="js/clockWatcher.js"></script>
+        <script src="js/ui.js"></script>
+
+    </body>
+</html>

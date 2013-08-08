@@ -1,0 +1,635 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+
+
+@font-face {
+    font-family: 'Futura';
+    src: url('../fonts/futurastd-bold.eot');
+    src: url('../fonts/futurastd-bold.eot') format('embedded-opentype'),
+         url('../fonts/futurastd-bold.woff') format('woff'),
+         url('../fonts/futurastd-bold.ttf') format('truetype'),
+         url('../fonts/futurastd-bold.svg#FuturaStdBold') format('svg');
+}
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+audio{
+  display: none !important;
+  visibility: hidden;
+}
+
+body {
+    width: 100%;
+ font-family: "Futura", "Arial";
+    font-size: 1em;
+    line-height: 5em;
+    background-color: #2f3438;
+    color: #fff;
+}
+
+
+
+
+a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5e6469;
+}
+
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+    -webkit-touch-callout: none;
+}
+
+.pressed {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+    -webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+
+.gifhidden {
+    position: absolute;
+    left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    direction: ltr;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+}
+
+.ir br {
+    display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+
+
+
+/*anything in here is mobile*/
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+#wrapper {
+ width:320px;
+  margin-left: auto ;
+  margin-right: auto ;
+  padding-top:0px;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTY0LjIxMXB4IiBoZWlnaHQ9IjQzOC40NTRweCIgdmlld0JveD0iMCAwIDU2NC4yMTEgNDM4LjQ1NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTY0LjIxMSA0MzguNDU0Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRjE1QjIyIiBkPSJNNDcuMjcxLDBDMTcuNDE2LDQ0Ljc1MywwLDk4LjUxNCwwLDE1Ni4zNDkNCgljMCwxNTUuODAzLDEyNi4zMDMsMjgyLjEwNSwyODIuMTA2LDI4Mi4xMDVjMTU1LjgwMywwLDI4Mi4xMDUtMTI2LjMwMywyODIuMTA1LTI4Mi4xMDVjMC01Ny44MzQtMTcuNDE2LTExMS41OTUtNDcuMjcxLTE1Ni4zNDkNCglINDcuMjcxeiIvPg0KPC9zdmc+DQo=);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  height: 234px;
+  width: 90%;
+  margin-left: auto ;
+  margin-right: auto ;
+  text-align: center;
+}
+
+.visuallyHidden {
+   display: none;
+
+}
+
+time {
+  display: block;
+  font-size: 4.5em;
+  padding: .7em 0 0;
+  text-align: center;
+}
+
+
+.content {
+ width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  text-align: center;
+  padding-top: 15%;
+
+}
+
+.content p {
+
+
+}
+
+.footer {
+     width:90%;
+    margin-left: auto ;
+  margin-right: auto ;
+
+
+}
+
+.cta {
+
+}
+
+.cta_collection {
+   list-style: none;
+padding: 0px;
+text-align: center;
+
+}
+
+.cta_collection li {
+  display: inline-block;
+}
+
+.cta_collection .branding {
+  display: block;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+.cta_collection .sub_pages,
+.cta_collection .soundPlaying {
+  padding: 0 10px 0 10px;
+}
+
+.section {
+  height: 100%;
+  margin-left: auto ;
+  margin-right: auto ;
+  background-color: #ff5900;
+  z-index: 2;
+}
+
+.sectionContent {
+  width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
+}
+
+
+.section h2 {
+
+    line-height: 1;
+    margin: 0 0 .5em 0;
+    padding: 1em 0 0;
+    font-weight: 300;
+}
+
+
+.section h3 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+        font-weight: 300;
+}
+
+
+.section h4 {
+
+    margin: 1em 0 0 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.section p {
+
+}
+
+.section ul {
+ list-style: none;
+
+}
+
+.section li {
+ list-style: none;
+
+}
+
+
+.sub_pages {
+  font-size:.8em;
+}
+
+.section {
+  display: none;
+  position: relative;
+}
+
+.selected {
+  display: block;
+}
+
+.close {
+  line-height: 1;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.section {
+  background-color: #ff5900;
+}
+
+#home {
+  background: transparent;
+}
+
+.footer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 3;
+}
+
+@media only screen and (min-width: 767px) {
+
+#wrapper {
+ width: 768px;
+ margin-left: auto ;
+ margin-right: auto ;
+}
+
+
+.header {
+  height: 420px;
+ width: 70%;
+ margin-left: auto ;
+ margin-right: auto;
+}
+
+.visuallyHidden {
+   display: none;
+
+}
+
+time {
+  font-size: 9em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.content {
+ width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
+  font-size: 1.5em;
+  padding-top: 10%;
+
+}
+
+.content p {
+
+
+}
+
+.footer {
+     width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
+
+}
+
+.cta_collection {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+  width: 100%;
+}
+
+.cta_collection li {
+  float: right;
+}
+
+
+
+.cta_collection .branding {
+  float: left;
+  border-bottom: none;
+}
+
+.cta_collection .sub_pages,
+.cta_collection .soundPlaying {
+  padding: 0 0 0 30px;
+}
+
+
+
+
+
+
+.sectionContent {
+  width:80%;
+    margin-left: auto ;
+  margin-right: auto ;
+}
+
+
+.section h2 {
+
+}
+
+.section p {
+
+}
+
+.section ul {
+   list-style-type: none;
+
+
+}
+
+.section li {
+ list-style-type: none;
+
+}
+
+
+.section li .branding {
+}
+
+.section li .soundPlaying {
+}
+
+.section li .ctaprimary {
+}
+
+}
+
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+/*anything in here is tablet*/
+
+@media only screen and (min-width: 1025px) {
+    /* Style adjustments for viewports that meet the condition */
+
+  /*#wrapper {
+   width:900px;
+    margin-left: auto;
+    margin-right: auto;
+  }*/
+
+  .visuallyHidden {
+     display: none;
+
+  }
+
+  time {
+    text-align: center;
+  }
+
+  .content {
+   width:60%;
+      margin-left: auto ;
+    margin-right: auto ;
+    font-size: 1.5em;
+    padding-top: 5%;
+
+  }
+
+  .content p {
+
+
+  }
+
+  .footer {
+       width:80%;
+      margin-left: auto ;
+    margin-right: auto ;
+
+  }
+
+
+
+
+  .section {
+      margin-left: auto ;
+    margin-right: auto ;
+
+  }
+
+
+  .section h2 {
+
+  }
+
+  .section p {
+
+  }
+
+  .section ul {
+     list-style: none;
+
+
+  }
+
+  .section li {
+   list-style: none;
+
+  }
+
+
+
+}
+
+.footer {
+  z-index: 3
+}
+
+.bgImg {
+  position: relative;
+  z-index: 1;
+}
+
+.bg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for viewports that meet the condition */
+
+
+
+}
