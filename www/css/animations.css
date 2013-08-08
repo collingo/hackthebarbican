@@ -1,0 +1,30 @@
+@-webkit-keyframes flip {
+    from {
+        -webkit-transform: rotateX(0deg);
+    }
+    to {
+        -webkit-transform: rotateX(180deg);
+    }
+}
+
+@keyframes flip {
+    from {
+        -webkit-transform: rotateX(0deg);
+    }
+    to {
+        -webkit-transform: rotateX(180deg);
+    }
+}
+
+.flip{
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-animation: flip 0.5s;
+    -webkit-animation-delay: 0.8s;
+    -webkit-animation-timing-function: cubic-bezier(.36,.44,0,1.42);
+
+    transform: translate3d(0, 0, 0);
+    animation: flip 0.5s;
+    animation-delay: 0.8s;
+    animation-timing-function: cubic-bezier(.36,.44,0,1.42);
+    fill-mode: forwards;
+}

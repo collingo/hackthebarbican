@@ -37,6 +37,7 @@ AM:PM:AD Timelapse
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animations.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -44,7 +45,7 @@ AM:PM:AD Timelapse
         <!-- Add your site or application content here -->
     <div id="wrapper">
 
-        <div class="section" id="home">
+        <div class="section selected" id="home">
         <div class="header">
             <h1 class="visuallyHidden">
                 AM:PM:AD
@@ -56,7 +57,8 @@ AM:PM:AD Timelapse
         </div>
         <audio id="audioPlayer" controls="controls" autoplay>
             Your browser does not support the <code>audio</code> element.
-            <source src="sounds/test.mp3" type="audio/mp3">
+            <source src="" type="audio/mp3">
+            <source src="" type="audio/ogg">
         </audio>
         
         <div class="content">
@@ -92,7 +94,7 @@ AM:PM:AD Timelapse
         </div>
 
 
-     <div class="section selected" id="project">
+     <div class="section" id="project">
             <div class="sectionContent">    
                 <h2>AM:PM:AD</h2>
                 <h3>Timelapse</h3>
@@ -127,6 +129,12 @@ Sound company name, Image company name.
         <a href="#home" class="close">Close</a>
         <div class="sectionContent">
             <h2>Timeline</h2>
+            <dl class="timeline clearfix">
+                <dt class="first">00:41</dt>
+                <dd>Roman's arrive in London and name it Londonium</dd>
+                <dt>00:60</dt>
+                <dd>Boudica burns London to the ground</dd>
+            </dl>
         </div>
     </div>
 
