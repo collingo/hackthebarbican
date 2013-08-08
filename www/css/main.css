@@ -84,28 +84,6 @@ textarea {
     resize: vertical;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
 /* Prevent callout */
 
 .nocallout {
@@ -226,20 +204,19 @@ textarea[contenteditable] {
 
 
 /*anything in here is mobile*/
-
+html *{
+  box-sizing: border-box;
+}
 html,
 body {
-  height: 100%;
   position: relative;
 }
 
 #wrapper {
- width:320px;
-  margin-left: auto ;
-  margin-right: auto ;
-  padding-top:0px;
-  position: relative;
-  z-index: 2;
+width: 100%;
+padding: 0px;
+position: relative;
+z-index: 2;
 }
 
 .header {
@@ -278,37 +255,39 @@ time {
 
 }
 
-.content p {
-
-
-}
-
 .footer {
-     width:90%;
-    margin-left: auto ;
-  margin-right: auto ;
-
-
-}
-
-.cta {
-
+  width:100%;
+  margin: 0 auto;
 }
 
 .cta_collection {
-   list-style: none;
-padding: 0px;
-text-align: center;
-
+  list-style: none;
+  padding: 0px;
+  background: #2f3438;
+  margin: 0;
+  text-align: center;
 }
 
 .cta_collection li {
-  display: inline-block;
+display: inline-block;
+width: 31%;
 }
 
 .cta_collection .branding {
-  display: block;
-  border-bottom: 1px solid #4d4d4d;
+display: block;
+float: left;
+border-bottom: 1px solid #4d4d4d;
+width: 100%;
+padding-left: 8%;
+line-height: 2;
+text-align: left;
+}
+
+.branding span {
+float: left;
+width: 100%;
+padding: 0;
+margin: 0;
 }
 
 .cta_collection .sub_pages, 
@@ -326,52 +305,40 @@ text-align: center;
 
 .sectionContent {
   width:80%;
-    margin-left: auto ;
-  margin-right: auto ;
+  margin: 0 auto;
 }
-
 
 .section h2 {
- font-size: 40px;
-    line-height: 1;
-    margin: 0 0 10px 0;
-    padding: 1em 0 0;
-    font-weight: 300;
+  font-size: 40px;
+  line-height: 1;
+  margin: 0 0 10px 0;
+  padding: 1em 0 0;
+  font-weight: 300;
 }
-
 
 .section h3 {
   font-size: 24px;
-    margin: 0 0 30px 0;
-    line-height: 1;
-        font-weight: 300;
+  margin: 0 0 30px 0;
+  line-height: 1;
+  font-weight: 300;
 }
-
 
 .section h4 {
-font-size: 18px;
+  font-size: 18px;
   letter-spacing: 0;
-    margin: 3em 0 1.5em 0;
-    padding: 0;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.section p {
-
+  margin: 3em 0 1.5em 0;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .section ul {
  list-style: none;
-
-
 }
 
 .section li {
  list-style: none;
-
 }
-
 
 .sub_pages {
   font-size:.8em;
@@ -394,19 +361,22 @@ font-size: 18px;
 }
 
 .section {
-  background-color: #ff5900;
+background-color: #ff5900;
+width: 100%;
+padding: 0 13%;
 }
 
 #home {
   background: transparent;
+  padding: 0;
 }
 
 .footer {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 3;
-  background-color: red;
+bottom: 0;
+left: 0;
+position: fixed;
+z-index: 3;
+background-color: red;
 }
 
 .sectionContent .footnotes {
@@ -416,6 +386,12 @@ font-size: 18px;
   line-height: 1.5;
   font-weight: normal;
   letter-spacing: 0;
+}
+
+.logos li {
+  background-color: blue;
+  float: left;
+  padding: 0 40px 0 0;
 }
 
 @media only screen and (min-width: 767px) {
@@ -454,21 +430,15 @@ time {
 
 }
 
-.content p {
-
-
-}
-
 .footer {
-     width:80%;
-    margin-left: auto ;
-  margin-right: auto ;
-
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
 }
 
 .cta_collection {
   list-style: none;
-  padding: 0px;
+  padding: 0 2%;
   margin: 0;
   width: 100%;
 }
@@ -476,8 +446,6 @@ time {
 .cta_collection li {
   float: right;
 }
-
-
 
 .cta_collection .branding {
   float: left;
@@ -488,11 +456,6 @@ time {
 .cta_collection .soundPlaying {
   padding: 0 0 0 30px;
 }
-
-
-
-
-
 
 .sectionContent {
   width:640px;
@@ -518,43 +481,21 @@ time {
 
 
 .section h4 {
-font-size: 18px;
+  font-size: 18px;
   letter-spacing: 0;
-    margin: 3em 0 1.5em 0;
-    padding: 0;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.section p {
-
+  margin: 3em 0 1.5em 0;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .section ul {
    list-style-type: none;
-
-
 }
 
 .section li {
  list-style-type: none;
-
 }
-
-
-.section li .branding {
-}
-
-.section li .soundPlaying {
-}
-
-.section li .ctaprimary {
-}
-
-}
-
-
-
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -705,12 +646,4 @@ font-size: 18px;
   position: relative;
   width: 70%;
   z-index: 1;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for viewports that meet the condition */
-
- 
-
 }
