@@ -78,6 +78,13 @@
         
         clockWatcher.displayTime(items[0]);
         clockWatcher.playAudio(items[1]);
+        if(items[4]) {
+            $('body').addClass('glitchBackground');
+            $('time').addClass('glitchText');
+        } else {
+            $('body').removeClass('glitchBackground');
+            $('time').removeClass('glitchText');
+        }
     };
 
     clockWatcher.displayTime = function(timeString) {
@@ -90,7 +97,7 @@
             time = timeString.split(":")[1];
             break;
         default:
-            time = timeString;
+            time = timeString.split(":")[0]+":"+timeString.split(":")[1];
         }
         $target.html(time);
     };

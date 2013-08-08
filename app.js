@@ -27,13 +27,13 @@ http.createServer(function(request, response) {
 		minute = twoDigitNumber(time.minute());
 		second = twoDigitNumber(time.second());
 		assetBaseUrl = "/assets/"+hour+minute;
-		// assetBaseUrl = "/assets/1959";
+		// assetBaseUrl = "/assets/1345";
 
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
 			var responseValue = hour+":"+minute+":"+second;
 			if(exists) {
 				var content = require(path.join(process.cwd(), assetBaseUrl, "/content.json"));
-				responseValue = (content.glitchDate || hour+":"+minute+":"+second) + "|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json";
+				responseValue = (content.glitchDate+":"+second || hour+":"+minute+":"+second)+"|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json|true";
 			}
 			response.writeHeader(200, {"Content-Type": "text/plain"});
 			response.write(responseValue);
