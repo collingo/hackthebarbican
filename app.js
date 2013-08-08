@@ -25,8 +25,8 @@ http.createServer(function(request, response) {
 		time = moment();
 		hour = twoDigitNumber(time.hour());
 		minute = twoDigitNumber(time.minute());
-		// assetBaseUrl = "/assets/"+hour+minute;
-		assetBaseUrl = "/assets/1959";
+		assetBaseUrl = "/assets/"+hour+minute;
+		// assetBaseUrl = "/assets/1959";
 
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
 			var responseValue = hour+":"+minute;

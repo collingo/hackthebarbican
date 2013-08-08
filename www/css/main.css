@@ -35,15 +35,12 @@ audio{
 
 body {
     width: 100%;
- font-family: "Futura", "Arial";
+    font-family: "Futura", "Arial";
     font-size: 1em;
     line-height: 5em;
     background-color: #2f3438;
     color: #fff;
 }
-
-
-
 
 a {
     color: #ffffff;
