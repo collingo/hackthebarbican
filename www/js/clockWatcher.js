@@ -33,7 +33,15 @@
         }
     };
 
-    clockWatcher.init = function(format, debug) { 
+    clockWatcher.init = function(format, debug) {
+
+        var audioElement = document.createElement('audio');
+        // audioElement.setAttribute('src', '/sounds/blip.wav');
+        audioElement.setAttribute('id', 'audioPlayer');
+        audioElement.setAttribute('preload', 'auto');
+        // audioElement.setAttribute('autoplay', 'true');
+        // audioElement.load();
+        document.body.appendChild(audioElement);
 
         // cache
         clockWatcher.format = format;
