@@ -12,6 +12,7 @@
         pollingChanged;
 
     window.clockWatcher = window.clockWatcher || {};
+    var clockWatcher = window.clockWatcher;
 
     window.requestAnimFrame = (function() {
         return  window.requestAnimationFrame ||
@@ -25,8 +26,6 @@
                 };
     })();
 
-    console.log("ClockWatcher running");
-
     clockWatcher.log = function() {
         if(clockWatcher.debug) {
             console.log.apply(console, arguments);
@@ -35,34 +34,32 @@
 
     clockWatcher.init = function(format, debug) {
 
-        var audioElement = document.createElement('audio');
-        // audioElement.setAttribute('src', '/sounds/blip.wav');
-        audioElement.setAttribute('id', 'audioPlayer');
-        audioElement.setAttribute('preload', 'auto');
-        // audioElement.setAttribute('autoplay', 'true');
-        // audioElement.load();
-        document.body.appendChild(audioElement);
+        clockWatcher.log("ClockWatcher running");
 
         // cache
         clockWatcher.format = format;
         clockWatcher.lastPoll = new Date().getTime();
         clockWatcher.debug = !!debug;
 
-        // collect current time from server
-        clockWatcher.ajaxRequest();
-
-        // start draw cycle
-        clockWatcher.draw();
+        $.ajax({
+            url: "/time",
+            success: function(data) {
+                clockWatcher.processResponse(data);
+                clockWatcher.delay = (60 - parseInt(data.split('|')[0].split(':')[2], 10)) * 1000;
+                clockWatcher.draw();
+            }
+        });
     };
 
     clockWatcher.draw = function() {
 
         var currentTime = new Date().getTime();
 
-        if((currentTime - clockWatcher.lastPoll) > 5000) {
+        if((currentTime - clockWatcher.lastPoll) > clockWatcher.delay) {
             clockWatcher.log("ajax", currentTime);
             clockWatcher.ajaxRequest();
             clockWatcher.lastPoll = currentTime;
+            clockWatcher.delay = 60000;
         }
 
         requestAnimFrame(clockWatcher.draw);

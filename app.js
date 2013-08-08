@@ -25,32 +25,15 @@ http.createServer(function(request, response) {
 		time = moment();
 		hour = twoDigitNumber(time.hour());
 		minute = twoDigitNumber(time.minute());
+		second = twoDigitNumber(time.second());
 		assetBaseUrl = "/assets/"+hour+minute;
 		// assetBaseUrl = "/assets/1959";
 
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
-			var responseValue = hour+":"+minute;
+			var responseValue = hour+":"+minute+":"+second;
 			if(exists) {
 				var content = require(path.join(process.cwd(), assetBaseUrl, "/content.json"));
-				responseValue = (content.glitchDate || hour+":"+minute) + "|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json";
-			}
-			response.writeHeader(200, {"Content-Type": "text/plain"});
-			response.write(responseValue);
-			response.end();
-		});
-
-		break;
-
-	case "/assets":
-		time = moment();
-		hour = twoDigitNumber(time.hour());
-		minute = twoDigitNumber(time.minute());
-		assetBaseUrl = "/assets/"+hour+minute;
-
-		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
-			var responseValue = hour+":"+minute;
-			if(exists) {
-				responseValue += "|"+assetBaseUrl+"/audio.mp3";
+				responseValue = (content.glitchDate || hour+":"+minute+":"+second) + "|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json";
 			}
 			response.writeHeader(200, {"Content-Type": "text/plain"});
 			response.write(responseValue);
