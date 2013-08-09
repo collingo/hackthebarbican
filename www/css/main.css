@@ -406,6 +406,10 @@ time {
   margin: 4em 0 2em;
 }
 
+#project h4 + h4 {
+  margin-top: 2em;
+}
+
 #project p {
   font-weight: 200;
   line-height: 1.75;
