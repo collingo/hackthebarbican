@@ -78,6 +78,12 @@ var barbican = window.barbican || {};
         clockWatcher.log(data);
         var items = data.split('|');
         
+        if (items[2] !== undefined && items[3] !== undefined) {
+            clockWatcher.getCopy(items[3]);
+            clockWatcher.displayImage(items[2]);
+        } else {
+            document.querySelector('.bg').classList.add('hide');
+        }
         clockWatcher.displayTime(items[0]);
         clockWatcher.playAudio(items[1]);
     };
@@ -95,6 +101,22 @@ var barbican = window.barbican || {};
             time = timeString.split(":")[0]+":"+timeString.split(":")[1];
         }
         $target.html(time);
+    };
+
+    clockWatcher.getCopy = function (url) {
+        var copy = document.querySelector('.yearCopy');
+        $.getJSON(url, function (data) {
+            copy.innerHTML = data.copy;
+        });
+    };
+
+    clockWatcher.displayImage = function (url) {
+        if (url === undefined) {
+            return;
+        }
+        var bg = document.querySelector('.bg');
+        bg.style.backgroundImage = 'url(' + url + ')';
+        bg.classList.remove('hide');
     };
 
     clockWatcher.playAudio = function(audio) {
