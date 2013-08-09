@@ -29,9 +29,6 @@ select,
 textarea {
     color: #222;
 }
-audio{
-  display: none;
-}
 
 body {
     width: 100%;
@@ -216,6 +213,10 @@ ul, ul li{
   list-style: none;
 }
 
+p {
+  margin: 1em 0;
+}
+
 #wrapper {
   margin-left: auto ;
   margin-right: auto ;
@@ -224,14 +225,15 @@ ul, ul li{
   z-index: 2;
 }
 .section{
+  margin: 0 10%;
   display: none;
 }
 .selected{
   display: block;
-  margin-bottom: 30%;
 }
 #timeline, #project{
   background: #ff5900;
+  margin: 0;
   padding: 0 7%;
 }
 #project{
@@ -245,6 +247,19 @@ ul, ul li{
   right: 30px;
 }
 .header {
+  margin: 0 0 1em;
+  position: relative;
+  width: 100%;
+}
+.header svg {
+  width: 100%;
+  height: 100%;
+}
+
+#audioPlayer {
+  margin: 0 auto 1em;
+}
+/*.header {
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTY0LjIxMXB4IiBoZWlnaHQ9IjQzOC40NTRweCIgdmlld0JveD0iMCAwIDU2NC4yMTEgNDM4LjQ1NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTY0LjIxMSA0MzguNDU0Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRjE1QjIyIiBkPSJNNDcuMjcxLDBDMTcuNDE2LDQ0Ljc1MywwLDk4LjUxNCwwLDE1Ni4zNDkNCgljMCwxNTUuODAzLDEyNi4zMDMsMjgyLjEwNSwyODIuMTA2LDI4Mi4xMDVjMTU1LjgwMywwLDI4Mi4xMDUtMTI2LjMwMywyODIuMTA1LTI4Mi4xMDVjMC01Ny44MzQtMTcuNDE2LTExMS41OTUtNDcuMjcxLTE1Ni4zNDkNCglINDcuMjcxeiIvPg0KPC9zdmc+DQo=);
   background-repeat: no-repeat;
   background-position: top center;
@@ -254,10 +269,11 @@ ul, ul li{
   margin-left: auto;
   margin-right: auto;
 }
-.content {
+*/
+/*.content {
   padding: 0 13%;
 }
-div.bg {
+*/div.bg {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -268,8 +284,8 @@ div.bg {
 }
 .footer{
   width: 100%;
-  position: fixed;
-  bottom: 0;
+/*  position: fixed;
+  bottom: 0;*/
   z-index: 3;
   background: #2f3438;
   border-bottom: 4px solid #ff5900;
@@ -288,16 +304,17 @@ ul.cta_collection{
   padding: 0 2%;
 }
 .logos{
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 .logos li{
   float: left;
-  width:50%;
   margin: 0;
   padding: 0;
 }
 .logos li img{
-  width: 50%;
+  width: 100%;
 }
 .cta_collection li {
   width: 33%;
@@ -322,8 +339,12 @@ li.branding{
 
 time {
   display: block;
-  font-size: 4.5em;
-  padding: .7em 0 0;
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 25%;
+  width: 100%;
 }
 
 .timeline {
@@ -377,10 +398,135 @@ time {
   z-index: 1;
 }
 
-@media only screen and (min-width: 767px) {
+#project h2 {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
 
+#project h3 {
+  font-weight: 800;
+  margin: 0 0 1em;
+}
+
+#project h4 {
+  font-weight: 800;
+  margin: 4em 0 2em;
+}
+
+#project p {
+  font-weight: 200;
+  line-height: 1.75;
+}
+
+.logos {
+  margin: 5em 0 2em;
+}
+
+.logos li {
+  width: 40%;
+}
+
+.logos li:first-child {
+  margin-right: 20%;
+}
+
+#timeline h2 {
+  text-align: left;
+}
+
+@media screen and (min-width: 767px) {
+  .content p {
+    font-size: 1.5em;
+  }
+
+  #project h2,
+  #timeline h2 {
+    font-weight: 200;
+    font-size: 7em;
+  }
+
+  #project h3 {
+    font-weight: 200;
+    font-size: 4em;
+  }
+
+  #project h4 {
+    font-weight: 200;
+  }  
+
+  #project p {
+    font-weight: 800;
+    width: 60%;
+  }
+
+  #project .footnotes {
+    font-size: .9em;
+    margin: 0 0 4em;
+  }
+
+  time {
+    font-size: 10em;
+  }
+
+  .footer .cta_collection {
+    padding: 2em 5%;
+    text-align: right;
+  }
+
+  .footer li {
+    display: inline-block;
+    float: none;
+    font-size: 0.813em;
+    padding: 0 1.5em;
+    width: auto;
+  }
+
+  .footer .branding {
+    border-bottom: 0;
+    float: left;
+    font-size: 1.3em;
+    padding: 0;
+    width: auto;
+  }
+
+  .footer a:focus,
+  .footer a:hover {
+    color: #ff5900;
+  }
+
+  #timeline h2 {
+    margin: .5em 0;
+    text-align: left;
+  }
+
+  #timeline dl {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .timeline dt {
+    font-size: 1.5em;
+  }
+
+  .timeline dd {
+    text-align: left;
+  }
+
+  .timeline dd:before {
+    border-width: 12px;
+    border-radius: 12px;
+    left: -3%;
+    top: 0;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
-
+  #wrapper {
+    max-width: 960px;
+  }
+  time {
+    font-size: 12em;
+  }
 }
