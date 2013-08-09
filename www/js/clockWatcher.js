@@ -75,7 +75,7 @@
     clockWatcher.processResponse = function(data) {
         clockWatcher.log(data);
         var items = data.split('|');
-        
+
         clockWatcher.displayTime(items[0]);
         clockWatcher.playAudio(items[1]);
         if(items[4]) {

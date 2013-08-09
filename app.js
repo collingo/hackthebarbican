@@ -16,6 +16,7 @@ http.createServer(function(request, response) {
 			time,
 			hour,
 			minute,
+			second,
 			assetBaseUrl,
 			responseValue;
 
@@ -23,17 +24,27 @@ http.createServer(function(request, response) {
 
 	case "/time":
 		time = moment();
-		hour = twoDigitNumber(time.hour());
+		hour = twoDigitNumber(time.add('h', 1).hour());
 		minute = twoDigitNumber(time.minute());
 		second = twoDigitNumber(time.second());
 		assetBaseUrl = "/assets/"+hour+minute;
-		// assetBaseUrl = "/assets/1345";
+		// assetBaseUrl = "/assets/1216"; // regular sound
+		// assetBaseUrl = "/assets/1159"; // glitch sound
 
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
 			var responseValue = hour+":"+minute+":"+second;
 			if(exists) {
-				var content = require(path.join(process.cwd(), assetBaseUrl, "/content.json"));
-				responseValue = (content.glitchDate+":"+second || hour+":"+minute+":"+second)+"|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json|true";
+				var content = require(path.join(process.cwd(), assetBaseUrl, "/content.json")),
+					responseValue = "";
+				if(content.glitchDate && content.glitchDate.length) {
+					responseValue += content.glitchDate+":"+second;
+				} else {
+					responseValue += hour+":"+minute+":"+second;
+				}
+				responseValue += "|"+assetBaseUrl+"/audio.mp3|"+assetBaseUrl+"/image.jpg|"+assetBaseUrl+"/content.json";
+				if(content.glitchDate && content.glitchDate.length) {
+					responseValue += "|true";
+				}
 			}
 			response.writeHeader(200, {"Content-Type": "text/plain"});
 			response.write(responseValue);
