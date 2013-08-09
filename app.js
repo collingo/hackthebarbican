@@ -27,10 +27,10 @@ http.createServer(function(request, response) {
 		hour = twoDigitNumber(time.add('h', 1).hour());
 		minute = twoDigitNumber(time.minute());
 		second = twoDigitNumber(time.second());
-		assetBaseUrl = "/assets/"+hour+minute;
+		//assetBaseUrl = "/assets/"+hour+minute;
 		//assetBaseUrl = "/assets/1345";
-		// assetBaseUrl = "/assets/1216"; // regular sound
-		// assetBaseUrl = "/assets/1159"; // glitch sound
+		assetBaseUrl = "/assets/1216"; // regular sound
+		//assetBaseUrl = "/assets/1159"; // glitch sound
 
 		fs.exists(path.join(process.cwd(), assetBaseUrl), function(exists) {
 			var responseValue = hour+":"+minute+":"+second;

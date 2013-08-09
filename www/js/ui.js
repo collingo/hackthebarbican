@@ -144,8 +144,12 @@ barbican.ui = function () {
 
 		if (target.match(/home/)) {
 			$('.footer').show();
+            $('.bg').show();
+            $('body').removeClass('orange');
 		} else {
+            $('.bg').hide();
 			$('.footer').hide();
+            $('body').addClass('orange');
 		}
 
 		event.preventDefault();

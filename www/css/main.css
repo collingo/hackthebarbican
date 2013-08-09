@@ -35,7 +35,7 @@ body {
     font-family: "Futura", "Arial";
     font-size: 1em;
     line-height: 1.2;
-    background: #2f3438;
+    background: #131416;
     color: #fff;
     text-align: center;
 }
@@ -221,7 +221,7 @@ p {
   margin-left: auto ;
   margin-right: auto ;
   padding-top:0px;
-  position: relative;
+  /*position: relative;*/
   z-index: 2;
 }
 .section{
@@ -234,11 +234,10 @@ p {
 #timeline, #project{
   background: #ff5900;
   margin: 0;
-  padding: 0 7%;
+  padding: 7%;
 }
 #project{
   text-align: left;
-  padding: 7%;
 }
 .close {
   line-height: 1;
@@ -257,6 +256,7 @@ p {
 }
 
 #audioPlayer {
+  display: none;
   margin: 0 auto 1em;
 }
 .bg {
@@ -278,7 +278,6 @@ p {
 /*  position: fixed;
   bottom: 0;*/
   z-index: 3;
-  background: #2f3438;
   border-bottom: 4px solid #ff5900;
 }
 .footer ul,
@@ -338,8 +337,18 @@ time {
   width: 100%;
 }
 
-.timeline {
-  line-height: 1.333;
+
+
+@media screen and (max-width: 766px) {
+  .timeline {
+    line-height: 1.333;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  #project p {
+    font-size: 0.813em;
+  }
 }
 
 .timeline dt {
@@ -366,8 +375,8 @@ time {
 }
 
 .timeline dd:before {
-  border: 4px solid #fff;
-  border-radius: 4px;
+  border: 6px solid #fff;
+  border-radius: 6px;
   content: '';
   display: block;
   height: 0;
@@ -385,11 +394,13 @@ time {
   margin: 0;
   padding: 0 0 3em 7%;
   position: relative;
+  text-align: left;
   width: 70%;
   z-index: 1;
 }
 
-#project h2 {
+#project h2,
+#timeline h2 {
   font-size: 2em;
   font-weight: 800;
   line-height: 1;
@@ -417,21 +428,53 @@ time {
 
 .logos {
   margin: 5em 0 2em;
+  max-width: 400px;
+}
+
+.logos .lbi {
+  width: 25%;
+}
+
+.logos .altitude {
+  width: 20%;
 }
 
 .logos li {
-  width: 40%;
+  margin-right: 12%;
 }
 
-.logos li:first-child {
-  margin-right: 20%;
+.logos .bridgeman {
+  width: 18%;
+}
+
+.logos .bridgeman img {
+  width: 100%;
 }
 
 #timeline h2 {
   text-align: left;
+  margin-bottom: 2em;
 }
 
 @media screen and (min-width: 767px) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  .orange {
+    background: #ff5900;
+  }
+
+  .bg {
+    background-size: auto 100%;
+  }
+
+  .header {
+    margin: 0 auto 1em;
+    width: 70%;
+  }
+
   .content p {
     font-size: 1.5em;
   }
@@ -449,20 +492,37 @@ time {
 
   #project h4 {
     font-weight: 200;
+    line-height: 1.5;
+    width: 65%;
   }  
 
+  #project h3 + h4 {
+    font-size: 1.25em;
+  }
+
   #project p {
+    font-size: .9em;
     font-weight: 800;
     width: 60%;
   }
 
   #project .footnotes {
-    font-size: .9em;
     margin: 0 0 4em;
   }
 
   time {
-    font-size: 10em;
+    font-size: 8em;
+  }
+
+  .wrapper {
+    height: 100%;
+  }
+
+  .footer {
+    max-width: 960px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
   }
 
   .footer .cta_collection {
@@ -522,6 +582,13 @@ time {
     max-width: 960px;
   }
   time {
-    font-size: 12em;
+    font-size: 8em;
   }
 }
+
+/*@media screen and (orientation: portrait) {
+  .wrapper {
+    height: 100%;
+    position: relative;
+  }
+}*/
