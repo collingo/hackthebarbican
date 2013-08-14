@@ -593,3 +593,7 @@ time {
     position: relative;
   }
 }*/
+
+.footnotes a {
+  text-decoration: underline;
+}
