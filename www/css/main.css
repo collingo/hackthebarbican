@@ -29,16 +29,13 @@ select,
 textarea {
     color: #222;
 }
-audio{
-  display: none;
-}
 
 body {
     width: 100%;
     font-family: "Futura", "Arial";
     font-size: 1em;
     line-height: 1.2;
-    background: #2f3438;
+    background: #131416;
     color: #fff;
     text-align: center;
 }
@@ -216,27 +213,31 @@ ul, ul li{
   list-style: none;
 }
 
+p {
+  margin: 1em 0;
+}
+
 #wrapper {
   margin-left: auto ;
   margin-right: auto ;
   padding-top:0px;
-  position: relative;
+  /*position: relative;*/
   z-index: 2;
 }
 .section{
+  margin: 0 10%;
   display: none;
 }
 .selected{
   display: block;
-  margin-bottom: 30%;
 }
 #timeline, #project{
   background: #ff5900;
-  padding: 0 7%;
+  margin: 0;
+  padding: 7%;
 }
 #project{
   text-align: left;
-  padding: 7%;
 }
 .close {
   line-height: 1;
@@ -245,33 +246,38 @@ ul, ul li{
   right: 30px;
 }
 .header {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTY0LjIxMXB4IiBoZWlnaHQ9IjQzOC40NTRweCIgdmlld0JveD0iMCAwIDU2NC4yMTEgNDM4LjQ1NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTY0LjIxMSA0MzguNDU0Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRjE1QjIyIiBkPSJNNDcuMjcxLDBDMTcuNDE2LDQ0Ljc1MywwLDk4LjUxNCwwLDE1Ni4zNDkNCgljMCwxNTUuODAzLDEyNi4zMDMsMjgyLjEwNSwyODIuMTA2LDI4Mi4xMDVjMTU1LjgwMywwLDI4Mi4xMDUtMTI2LjMwMywyODIuMTA1LTI4Mi4xMDVjMC01Ny44MzQtMTcuNDE2LTExMS41OTUtNDcuMjcxLTE1Ni4zNDkNCglINDcuMjcxeiIvPg0KPC9zdmc+DQo=);
+  margin: 0 0 1em;
+  position: relative;
+  width: 100%;
+}
+.header svg {
+  width: 100%;
+  height: 100%;
+}
+
+#audioPlayer {
+  display: none;
+  margin: 0 auto 1em;
+}
+.bg {
+  background-position: 50% 0;
   background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 87% auto;
-  height: 310px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.content {
-  padding: 0 13%;
-}
-div.bg {
+  background-size: auto 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
   z-index: -1;
+}
+.hide {
+  display: none;
 }
 .footer{
   width: 100%;
-  position: fixed;
-  bottom: 0;
+/*  position: fixed;
+  bottom: 0;*/
   z-index: 3;
-  background: #2f3438;
   border-bottom: 4px solid #ff5900;
 }
 .footer ul,
@@ -288,16 +294,17 @@ ul.cta_collection{
   padding: 0 2%;
 }
 .logos{
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 .logos li{
   float: left;
-  width:50%;
   margin: 0;
   padding: 0;
 }
 .logos li img{
-  width: 50%;
+  width: 100%;
 }
 .cta_collection li {
   width: 33%;
@@ -322,12 +329,26 @@ li.branding{
 
 time {
   display: block;
-  font-size: 4.5em;
-  padding: .7em 0 0;
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 25%;
+  width: 100%;
 }
 
-.timeline {
-  line-height: 1.333;
+
+
+@media screen and (max-width: 766px) {
+  .timeline {
+    line-height: 1.333;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  #project p {
+    font-size: 0.813em;
+  }
 }
 
 .timeline dt {
@@ -354,8 +375,8 @@ time {
 }
 
 .timeline dd:before {
-  border: 4px solid #fff;
-  border-radius: 4px;
+  border: 6px solid #fff;
+  border-radius: 6px;
   content: '';
   display: block;
   height: 0;
@@ -373,14 +394,206 @@ time {
   margin: 0;
   padding: 0 0 3em 7%;
   position: relative;
+  text-align: left;
   width: 70%;
   z-index: 1;
 }
 
-@media only screen and (min-width: 767px) {
+#project h2,
+#timeline h2 {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
 
+#project h3 {
+  font-weight: 800;
+  margin: 0 0 1em;
+}
+
+#project h4 {
+  font-weight: 800;
+  margin: 4em 0 2em;
+}
+
+#project h4 + h4 {
+  margin-top: 2em;
+}
+
+#project p {
+  font-weight: 200;
+  line-height: 1.75;
+  margin: 0 0 1em;
+}
+
+.logos {
+  margin: 5em 0 2em;
+  max-width: 400px;
+}
+
+.logos .lbi {
+  width: 25%;
+}
+
+.logos .altitude {
+  width: 20%;
+}
+
+.logos li {
+  margin-right: 12%;
+}
+
+.logos .bridgeman {
+  width: 18%;
+}
+
+.logos .bridgeman img {
+  width: 100%;
+}
+
+#timeline h2 {
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+@media screen and (min-width: 767px) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  .orange {
+    background: #ff5900;
+  }
+
+  .bg {
+    background-size: auto 100%;
+  }
+
+  .header {
+    margin: 0 auto 1em;
+    width: 70%;
+  }
+
+  .content p {
+    font-size: 1.5em;
+  }
+
+  #project h2,
+  #timeline h2 {
+    font-weight: 200;
+    font-size: 7em;
+  }
+
+  #project h3 {
+    font-weight: 200;
+    font-size: 4em;
+  }
+
+  #project h4 {
+    font-weight: 200;
+    line-height: 1.5;
+    width: 65%;
+  }  
+
+  #project h3 + h4 {
+    font-size: 1.25em;
+  }
+
+  #project p {
+    font-size: .9em;
+    font-weight: 800;
+    width: 60%;
+  }
+
+  #project .footnotes {
+    margin: 0 0 1em;
+  }
+
+  time {
+    font-size: 8em;
+  }
+
+  .wrapper {
+    height: 100%;
+  }
+
+  .footer {
+    max-width: 960px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .footer .cta_collection {
+    padding: 2em 5%;
+    text-align: right;
+  }
+
+  .footer li {
+    display: inline-block;
+    float: none;
+    font-size: 0.813em;
+    padding: 0 1.5em;
+    width: auto;
+  }
+
+  .footer .branding {
+    border-bottom: 0;
+    float: left;
+    font-size: 1.3em;
+    padding: 0;
+    width: auto;
+  }
+
+  .footer a:focus,
+  .footer a:hover {
+    color: #ff5900;
+  }
+
+  #timeline h2 {
+    margin: .5em 0;
+    text-align: left;
+  }
+
+  #timeline dl {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .timeline dt {
+    font-size: 1.5em;
+  }
+
+  .timeline dd {
+    text-align: left;
+  }
+
+  .timeline dd:before {
+    border-width: 12px;
+    border-radius: 12px;
+    left: -3%;
+    top: 0;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
+  #wrapper {
+    max-width: 960px;
+  }
+  time {
+    font-size: 8em;
+  }
+}
 
+/*@media screen and (orientation: portrait) {
+  .wrapper {
+    height: 100%;
+    position: relative;
+  }
+}*/
+
+.footnotes a {
+  text-decoration: underline;
 }
