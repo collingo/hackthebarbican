@@ -24,7 +24,7 @@ http.createServer(function(request, response) {
 
 	case "/time":
 		time = moment();
-		hour = twoDigitNumber(time.add('h', 1).hour());
+		hour = twoDigitNumber(time.add('h', 0).hour());
 		minute = twoDigitNumber(time.minute());
 		second = twoDigitNumber(time.second());
 		//assetBaseUrl = "/assets/"+hour+minute;

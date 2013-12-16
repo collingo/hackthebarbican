@@ -89,6 +89,8 @@
 
     clockWatcher.displayTime = function(timeString) {
         var time;
+        
+        console.log(time);
         switch(clockWatcher.format) {
         case "HH":
             time = timeString.split(":")[0];
